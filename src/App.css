@@ -1,38 +1,60 @@
-.App {
-  text-align: center;
+.nav-bg {
+  background: #5f2c82; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #49a09d,
+    #5f2c82
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #49a09d,
+    #5f2c82
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav-item {
+  text-decoration: none !important;
+  color: #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav-item:hover {
+  color: #72cfcc;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header-container {
+  height: 50vh;
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.759),
+      rgba(96, 44, 130, 0.416)
+    ),
+    url("./jewelheader.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  text-align: left;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.game-btn {
+  background: #49a09d;
+  border: 1px solid #49a09d;
+}
+
+.game-btn:hover {
+  background: #328683;
+  border: 1px solid #328683;
+}
+
+.jewel-btns {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.jewel-icons {
+  color: #5f2c82;
 }
