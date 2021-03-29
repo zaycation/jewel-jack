@@ -90,6 +90,7 @@ const Game = () => {
         Swal.fire({
           title: "Share",
         });
+        navigator.clipboard.writeText("https://jewel-jack.netlify.app")
       }
     });
   }
