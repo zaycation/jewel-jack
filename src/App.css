@@ -100,5 +100,12 @@
   padding-top: 10%;
 }
 
-.donatebg {
+.donation-rzn {
+  background-color: #f3ec78;
+  background-image: linear-gradient(to right, #49a09d, #5f2c82);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
 }

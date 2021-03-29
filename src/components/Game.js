@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import {
+  GiFloatingCrystal,
   GiCutDiamond,
   GiEmerald,
   GiRupee,
-  GiFloatingCrystal,
 } from "react-icons/gi";
 import {
+  ProgressBar,
   Container,
+  Button,
+  Card,
   Row,
   Col,
-  ProgressBar,
-  Card,
-  Button,
 } from "react-bootstrap";
 
 const useStateWithLocalStorage = (localStorageKey) => {
@@ -40,8 +40,8 @@ const useStateWithLocalStorage2 = (localStorageKey) => {
 const Game = () => {
   const [count, setCount] = useState(1);
   const [currentCount, setCurrentCount] = useState(0);
-  const [wins, setWins] = useStateWithLocalStorage("wins");
-  const [losses, setLosses] = useStateWithLocalStorage2("losses");
+  const [wins, setWins] = useStateWithLocalStorage("winsKey");
+  const [losses, setLosses] = useStateWithLocalStorage2("lossesKey");
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
