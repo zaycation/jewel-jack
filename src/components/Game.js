@@ -15,11 +15,39 @@ import {
   Button,
 } from "react-bootstrap";
 
+const useStateWithLocalStorage = (localStorageKey) => {
+  const [wins, setWins] = useState(localStorage.getItem(localStorageKey) || 0);
+
+  useEffect(() => {
+    localStorage.setItem(localStorageKey, wins);
+  }, [localStorageKey, wins]);
+
+  return [wins, setWins];
+};
+
+const useStateWithLocalStorage2 = (localStorageKey) => {
+  const [losses, setLosses] = useState(
+    localStorage.getItem(localStorageKey) || 0
+  );
+
+  useEffect(() => {
+    localStorage.setItem(localStorageKey, losses);
+  }, [localStorageKey, losses]);
+
+  return [losses, setLosses];
+};
+
 const Game = () => {
   const [count, setCount] = useState(1);
   const [currentCount, setCurrentCount] = useState(0);
-  const [wins, setWins] = useState(0);
-  const [losses, setLosses] = useState(0);
+  const [wins, setWins] = useStateWithLocalStorage(0);
+  const [losses, setLosses] = useStateWithLocalStorage2(1);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    setCount(getRandomNumberBetween(300, 1000));
+    //console.log(count.currentVal);
+  }, []);
 
   function getRandomNumberBetween(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -46,11 +74,6 @@ const Game = () => {
     }
   }
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => {
-    setCount(getRandomNumberBetween(300, 1000));
-    //console.log(count.currentVal);
-  }, []);
   if (currentCount > count) {
     setCurrentCount(currentCount === 0);
     setLosses(losses + 1);
@@ -90,7 +113,7 @@ const Game = () => {
         Swal.fire({
           title: "Share",
         });
-        navigator.clipboard.writeText("https://jewel-jack.netlify.app")
+        navigator.clipboard.writeText("https://jewel-jack.netlify.app");
       }
     });
   }
