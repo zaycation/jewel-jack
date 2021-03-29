@@ -39,6 +39,12 @@ const HomeNav = () => {
               </HashLink>
             </Nav.Link>
           </Fade>
+
+          <Fade bottom>
+            <Nav.Link href="https://github.com/zaycation/jewel-jack">
+              View Src
+            </Nav.Link>
+          </Fade>
         </Nav>
       </Navbar>
     </>
