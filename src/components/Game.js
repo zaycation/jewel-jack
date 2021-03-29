@@ -155,7 +155,9 @@ const Game = () => {
             <Button
               block
               variant="info"
-              onClick={() => navigator.clipboard.writeText("linktothegame")}
+              onClick={() =>
+                navigator.clipboard.writeText("https://jewel-jack.netlify.app")
+              }
             >
               Click me to share the link to friends
             </Button>
