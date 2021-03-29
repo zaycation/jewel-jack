@@ -40,8 +40,8 @@ const useStateWithLocalStorage2 = (localStorageKey) => {
 const Game = () => {
   const [count, setCount] = useState(1);
   const [currentCount, setCurrentCount] = useState(0);
-  const [wins, setWins] = useStateWithLocalStorage(0);
-  const [losses, setLosses] = useStateWithLocalStorage2(1);
+  const [wins, setWins] = useStateWithLocalStorage("wins");
+  const [losses, setLosses] = useStateWithLocalStorage2("losses");
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
