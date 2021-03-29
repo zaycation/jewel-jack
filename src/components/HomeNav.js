@@ -17,14 +17,6 @@ const HomeNav = () => {
 
         <Nav className="ml-auto">
           <Fade bottom>
-            <Nav.Link active>
-              <HashLink to="/" className="nav-item">
-                Home
-              </HashLink>
-            </Nav.Link>
-          </Fade>
-
-          <Fade bottom>
             <Nav.Link>
               <HashLink to="/app" className="nav-item">
                 App
@@ -42,7 +34,7 @@ const HomeNav = () => {
 
           <Fade bottom>
             <Nav.Link href="https://github.com/zaycation/jewel-jack">
-              View Src
+              Src
             </Nav.Link>
           </Fade>
         </Nav>
