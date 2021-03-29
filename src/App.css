@@ -58,3 +58,48 @@
 .jewel-icons {
   color: #5f2c82;
 }
+
+.jewel-icons {
+  overflow: hidden;
+  transition: transform 100ms ease-in;
+  cursor: pointer;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.jewel-icons:hover {
+  transform: scale(1.105);
+}
+
+.sect1-bg {
+  background-image: url("https://images.unsplash.com/photo-1613413284339-91c396f434cf?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1983&q=80");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 40vh;
+}
+
+.sect2-bg {
+  background-image: url("https://images.unsplash.com/photo-1577481759269-e704c1871a26?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 40vh;
+}
+
+.sect3-bg {
+  background-image: url("https://images.unsplash.com/photo-1611331411044-faed0a0d69b1?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1600&q=80");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 40vh;
+}
+
+.text-sect {
+  min-height: 40vh;
+  padding-top: 10%;
+}
+
+.donatebg {
+  
+}

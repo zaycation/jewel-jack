@@ -6,7 +6,14 @@ import {
   GiRupee,
   GiFloatingCrystal,
 } from "react-icons/gi";
-import { Container, Row, Col, ProgressBar, Card } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  ProgressBar,
+  Card,
+  Button,
+} from "react-bootstrap";
 
 const Game = () => {
   const [count, setCount] = useState(1);
@@ -128,9 +135,41 @@ const Game = () => {
                   <h6>Target ~ {count}</h6>
                   <h6>Losses ~ {losses}</h6>
                 </div>
+                <div>
+                  <h6>Ratio ~ {(wins / losses).toFixed(3)}</h6>
+                </div>
               </Card.Body>
               <Card.Footer className="text-center">Jewel Stats</Card.Footer>
             </Card>
+          </Col>
+        </Row>
+        <Row>
+          <Col sm={12} md={12} lg={12}>
+            <Button
+              block
+              variant="info"
+              onClick={() => navigator.clipboard.writeText("linktothegame")}
+            >
+              Click me to share the link to friends
+            </Button>
+          </Col>
+          <Col sm={12} md={12} lg={12}>
+            <h4 className="py-5">Instructions</h4>
+            <ol>
+              <li>
+                The bottom green bar is the target score aka the "dealer's
+                hand".
+              </li>
+              <li>
+                The goal is to choose the correct combination of jewels to
+                perfectly match the dealer's hand. There is also a stats card to
+                show you the corresponding digits.
+              </li>
+              <li>
+                The value of the jewels may or may not change values. Choose
+                carefully to ensure you match the dealer's hand!
+              </li>
+            </ol>
           </Col>
         </Row>
       </Container>
