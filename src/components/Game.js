@@ -113,8 +113,15 @@ const Game = () => {
               />
             </div>
 
-            <ProgressBar now={currentCount} variant="info" min={0} max={1000} />
             <ProgressBar
+              animated
+              now={currentCount}
+              variant="info"
+              min={0}
+              max={1000}
+            />
+            <ProgressBar
+              striped
               className="my-3"
               now={count}
               variant="success"
