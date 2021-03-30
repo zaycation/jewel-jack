@@ -13,6 +13,7 @@ import {
   Card,
   Row,
   Col,
+  Toast,
 } from "react-bootstrap";
 
 const useStateWithLocalStorage = (localStorageKey) => {
@@ -38,6 +39,7 @@ const useStateWithLocalStorage2 = (localStorageKey) => {
 };
 
 const Game = () => {
+  const [show, setShow] = useState(false);
   const [count, setCount] = useState(1);
   const [currentCount, setCurrentCount] = useState(0);
   const [wins, setWins] = useStateWithLocalStorage("winsKey");
@@ -110,10 +112,12 @@ const Game = () => {
       } else if (result.isDenied) {
         setCount(getRandomNumberBetween(300, 1000));
       } else if (result.isCancelled) {
+        navigator.clipboard.writeText("https://jewel-jack.netlify.app");
+        setShow(true);
         Swal.fire({
           title: "Share",
         });
-        navigator.clipboard.writeText("https://jewel-jack.netlify.app");
+
       }
     });
   }
@@ -122,6 +126,24 @@ const Game = () => {
       <Container>
         <Row>
           <Col sm={12} md={6} lg={6}>
+            <div className="d-flex justify-content-center align-items-center py-3">
+              <Toast
+                onClose={() => setShow(false)}
+                show={show}
+                delay={5000}
+                autohide
+              >
+                <Toast.Header>
+                  <strong className="mr-auto">Link copied to clipboard!</strong>
+                  <small>0 secs ago</small>
+                </Toast.Header>
+                <Toast.Body>
+                  Woohoo, you just copied the link to this app! Share it with
+                  your friends by pasting it somewhere else! (Ctrl + V || Cmd +
+                  V)
+                </Toast.Body>
+              </Toast>
+            </div>
             <div className="jewel-btns my-5">
               <GiRupee size={80} onClick={gemAdd2} className="jewel-icons" />
               <GiCutDiamond
@@ -157,7 +179,7 @@ const Game = () => {
             <br />
             <br />
             <Card>
-              <Card.Body className="d-flex align-items-center justify-content-around text-center">
+              <Card.Body className="d-flex align-items-center justify-content-between">
                 <div>
                   <h6>Current ~ {currentCount}</h6>
                   <h6>Wins ~ {wins}</h6>
@@ -176,12 +198,14 @@ const Game = () => {
         </Row>
         <Row>
           <Col sm={12} md={12} lg={12}>
+            <div className="py-3"></div>
             <Button
               block
               variant="info"
-              onClick={() =>
-                navigator.clipboard.writeText("https://jewel-jack.netlify.app")
-              }
+              onClick={() => {
+                navigator.clipboard.writeText("https://jewel-jack.netlify.app");
+                setShow(true);
+              }}
             >
               Click me to share the link to friends
             </Button>

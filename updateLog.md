@@ -5,3 +5,6 @@
 
 - ## v1.0.1 | 03/29/2021
 ### Included local storage to save users' win loss ratios.
+
+- ## v1.0.2 | 03/29/2021
+### Added toast for clicking share link
