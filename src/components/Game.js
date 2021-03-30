@@ -17,7 +17,9 @@ import {
 } from "react-bootstrap";
 
 const useStateWithLocalStorage = (localStorageKey) => {
-  const [wins, setWins] = useState(localStorage.getItem(localStorageKey) || 0);
+  const [wins, setWins] = useState(
+    parseInt(localStorage.getItem(localStorageKey)) || 0
+  );
 
   useEffect(() => {
     localStorage.setItem(localStorageKey, wins);
@@ -28,7 +30,7 @@ const useStateWithLocalStorage = (localStorageKey) => {
 
 const useStateWithLocalStorage2 = (localStorageKey) => {
   const [losses, setLosses] = useState(
-    localStorage.getItem(localStorageKey) || 0
+    parseInt(localStorage.getItem(localStorageKey)) || 0
   );
 
   useEffect(() => {
@@ -117,7 +119,6 @@ const Game = () => {
         Swal.fire({
           title: "Share",
         });
-
       }
     });
   }
