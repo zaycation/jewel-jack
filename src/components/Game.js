@@ -65,14 +65,14 @@ const Game = () => {
   }
 
   function gemAdd2() {
-    let gemVal2 = getRandomNumberBetween(0, 5);
+    let gemVal2 = getRandomNumberBetween(1, 5);
     if (gemVal2 > 0) {
       setCurrentCount(currentCount + gemVal2);
     }
   }
 
   function gemAdd3() {
-    let gemVal3 = getRandomNumberBetween(0, 100);
+    let gemVal3 = getRandomNumberBetween(1, 100);
     if (gemVal3 > 0) {
       setCurrentCount(currentCount + gemVal3);
     }
