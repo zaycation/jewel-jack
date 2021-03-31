@@ -16,7 +16,12 @@ const Onboarding = () => {
           <Col sm={12} md={6} lg={6} className="sect1-bg">
             <div></div>
           </Col>
-          <Col sm={12} md={6} lg={6} className="text-sect text-right">
+          <Col
+            sm={12}
+            md={6}
+            lg={6}
+            className="text-sect text-right overflow-hidden"
+          >
             <Slide right>
               <h6>When the game starts, a random target score is set</h6>
               <p>
@@ -32,7 +37,12 @@ const Onboarding = () => {
           </Col>
         </Row>
         <Row>
-          <Col sm={12} md={6} lg={6} className="text-sect text-left">
+          <Col
+            sm={12}
+            md={6}
+            lg={6}
+            className="text-sect text-left overflow-hidden"
+          >
             <Slide left>
               <h6>Values may or may not randomly change at any moment...</h6>
               <p>
@@ -69,7 +79,12 @@ const Onboarding = () => {
           <Col sm={12} md={6} lg={6} className="sect3-bg">
             <div></div>
           </Col>
-          <Col sm={12} md={6} lg={6} className="text-sect text-right">
+          <Col
+            sm={12}
+            md={6}
+            lg={6}
+            className="text-sect text-right overflow-hidden"
+          >
             <Slide right>
               <div>
                 <GiCutDiamond className="jewel-icons" size={32} />
