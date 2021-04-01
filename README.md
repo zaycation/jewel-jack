@@ -2,13 +2,13 @@
 
 ## The free to play jewel based black jack game
 
-Created by zaycation.dev
-
-This project has 2 primary goals. First, it is to act as a fun game to pass time. It is not easy, but it's fun enough to make you keep trying. Secondly, this repo plans to double as an awesome way to introduce new devs to contributing to open source github projects.
+Created by [zaycation.dev](https://zaycation.dev)
 
 [View Live](https://jewel-jack.netlify.app)
 
 [Join our discord!](https://discord.gg/PFxWBe4)
+
+This project has 2 primary goals. First, it is to act as a fun game to pass time. It is not easy, but it's fun enough to make you keep trying. Secondly, this repo plans to double as an awesome way to introduce new devs to contributing to open source github projects.
 
 ## How to contribute
 
