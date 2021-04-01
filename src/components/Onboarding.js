@@ -13,13 +13,20 @@ const Onboarding = () => {
     <>
       <Container fluid={true}>
         <Row>
-          <Col sm={12} md={6} lg={6} className="sect1-bg">
+          <Col
+            xs={{ span: 12, order: 2 }}
+            sm={{ span: 12, order: 2 }}
+            md={{ span: 6, order: 1 }}
+            lg={{ span: 6, order: 1 }}
+            className="sect1-bg"
+          >
             <div></div>
           </Col>
           <Col
-            sm={12}
-            md={6}
-            lg={6}
+            xs={{ span: 12, order: 1 }}
+            sm={{ span: 12, order: 1 }}
+            md={{ span: 6, order: 2 }}
+            lg={{ span: 6, order: 2 }}
             className="text-sect text-right overflow-hidden"
           >
             <Slide right>
@@ -38,9 +45,10 @@ const Onboarding = () => {
         </Row>
         <Row>
           <Col
-            sm={12}
-            md={6}
-            lg={6}
+            xs={{ span: 12, order: 3 }}
+            sm={{ span: 12, order: 3 }}
+            md={{ span: 6, order: 3 }}
+            lg={{ span: 6, order: 3 }}
             className="text-sect text-left overflow-hidden"
           >
             <Slide left>
@@ -71,18 +79,31 @@ const Onboarding = () => {
               </ProgressBar>
             </Slide>
           </Col>
-          <Col sm={12} md={6} lg={6} className="sect2-bg">
+          <Col
+            xs={{ span: 12, order: 4 }}
+            sm={{ span: 12, order: 4 }}
+            md={{ span: 6, order: 4 }}
+            lg={{ span: 6, order: 4 }}
+            className="sect2-bg"
+          >
             <div></div>
           </Col>
         </Row>
         <Row>
-          <Col sm={12} md={6} lg={6} className="sect3-bg">
+          <Col
+            xs={{ span: 12, order: 6 }}
+            sm={{ span: 12, order: 6 }}
+            md={{ span: 6, order: 5 }}
+            lg={{ span: 6, order: 5 }}
+            className="sect3-bg"
+          >
             <div></div>
           </Col>
           <Col
-            sm={12}
-            md={6}
-            lg={6}
+            xs={{ span: 12, order: 5 }}
+            sm={{ span: 12, order: 5 }}
+            md={{ span: 6, order: 6 }}
+            lg={{ span: 6, order: 6 }}
             className="text-sect text-right overflow-hidden"
           >
             <Slide right>
