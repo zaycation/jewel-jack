@@ -90,6 +90,7 @@ const Game = () => {
       text: "You've exceeded the set value limit!",
       showDenyButton: false,
       showCancelButton: false,
+      confirmButtonColor: "#17A2B8",
       confirmButtonText: `Play Again`,
     }).then((result) => {
       if (result.isConfirmed) {
@@ -109,6 +110,7 @@ const Game = () => {
       text: "You've perfectly matched the value limit!",
       showDenyButton: false,
       showCancelButton: true,
+      confirmButtonColor: "#17A2B8",
       confirmButtonText: `Play Again`,
       cancelButtonText: `Share with friends`,
     }).then((result) => {
