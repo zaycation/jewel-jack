@@ -143,6 +143,7 @@ const Game = () => {
         <li style="text-align: center">
     </ul>
     `,
+      confirmButtonColor: "#17A2B8",
       confirmButtonText: `Play!`,
     });
   }
