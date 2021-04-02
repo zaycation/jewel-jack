@@ -15,7 +15,6 @@ import {
   Col,
   Toast,
 } from "react-bootstrap";
-import Popup from "./Popup";
 
 const useStateWithLocalStorage = (localStorageKey) => {
   const [wins, setWins] = useState(
@@ -47,12 +46,19 @@ const Game = () => {
   const [currentCount, setCurrentCount] = useState(0);
   const [wins, setWins] = useStateWithLocalStorage("winsKey");
   const [losses, setLosses] = useStateWithLocalStorage2("lossesKey");
+  const [visible, setVisible] = useState(false);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     setCount(getRandomNumberBetween(300, 1000));
     //console.log(count.currentVal);
   }, []);
+
+  let pop_status = localStorage.getItem("pop_status");
+  if (!pop_status) {
+    setVisible(true);
+    localStorage.setItem("pop_status", 1);
+  }
 
   function getRandomNumberBetween(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -119,9 +125,30 @@ const Game = () => {
       }
     });
   }
+
+  if (visible) {
+    Swal.fire({
+      title: "Instructions",
+      width: "1000px",
+      html: `
+    <ul style="list-style: none">
+        <li style="text-align: center">The bottom green bar is the target score aka the "dealer's hand</li>
+        <br />
+        <li style="text-align: center">The goal is to choose the correct combination of jewels to perfectly match the dealer's hand.</li>
+        <br />
+        <li style="text-align: center">There is also a stats card to show you the corresponding digits.</li>
+        <br />
+        <li style="text-align: center">The value of the jewels may or may not change values.</li>
+        <br />
+        <li style="text-align: center">
+    </ul>
+    `,
+      confirmButtonText: `Play!`,
+    });
+  }
+
   return (
     <>
-      <Popup />
       <Container>
         <Row>
           <Col sm={12} md={6} lg={6}>
