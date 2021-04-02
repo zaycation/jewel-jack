@@ -15,6 +15,7 @@ import {
   Col,
   Toast,
 } from "react-bootstrap";
+import Popup from "./Popup";
 
 const useStateWithLocalStorage = (localStorageKey) => {
   const [wins, setWins] = useState(
@@ -120,6 +121,7 @@ const Game = () => {
   }
   return (
     <>
+      <Popup />
       <Container>
         <Row>
           <Col sm={12} md={6} lg={6}>
