@@ -143,6 +143,8 @@ const Game = () => {
         <li style="text-align: center">The value of the jewels may or may not change values.</li>
         <br />
         <li style="text-align: center">
+        <br />
+        <li style="text-align: center">Choose carefully to ensure you match the dealer's hand!</li>
     </ul>
     `,
       confirmButtonColor: "#17A2B8",
