@@ -133,17 +133,11 @@ const Game = () => {
       title: "Instructions",
       width: "1000px",
       html: `
-    <ul style="list-style: none">
-        <li style="text-align: center">The bottom green bar is the target score aka the "dealer's hand</li>
-        <br />
-        <li style="text-align: center">The goal is to choose the correct combination of jewels to perfectly match the dealer's hand.</li>
-        <br />
-        <li style="text-align: center">There is also a stats card to show you the corresponding digits.</li>
-        <br />
-        <li style="text-align: center">The value of the jewels may or may not change values.</li>
-        <br />
-        <li style="text-align: center">Choose carefully to ensure you match the dealer's hand!</li>
-    </ul>
+        <p>The bottom green bar is the target score aka the "dealer's hand".</p>
+        <p>The goal is to choose the correct combination of jewels to perfectly match the dealer's hand. </p>
+        <p>There is also a stats card to show you the corresponding digits.</p>
+        <p>The value of the jewels may or may not change values.</p>
+        <p>Choose carefully to ensure you match the dealer's hand!</p>
     `,
       confirmButtonColor: "#17A2B8",
       confirmButtonText: `Play!`,
