@@ -46,12 +46,19 @@ const Game = () => {
   const [currentCount, setCurrentCount] = useState(0);
   const [wins, setWins] = useStateWithLocalStorage("winsKey");
   const [losses, setLosses] = useStateWithLocalStorage2("lossesKey");
+  const [visible, setVisible] = useState(false);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     setCount(getRandomNumberBetween(300, 1000));
     //console.log(count.currentVal);
   }, []);
+
+  let pop_status = localStorage.getItem("pop_status");
+  if (!pop_status) {
+    setVisible(true);
+    localStorage.setItem("pop_status", 1);
+  }
 
   function getRandomNumberBetween(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -83,6 +90,7 @@ const Game = () => {
       text: "You've exceeded the set value limit!",
       showDenyButton: false,
       showCancelButton: false,
+      confirmButtonColor: "#17A2B8",
       confirmButtonText: `Play Again`,
     }).then((result) => {
       if (result.isConfirmed) {
@@ -102,6 +110,7 @@ const Game = () => {
       text: "You've perfectly matched the value limit!",
       showDenyButton: false,
       showCancelButton: true,
+      confirmButtonColor: "#17A2B8",
       confirmButtonText: `Play Again`,
       cancelButtonText: `Share with friends`,
     }).then((result) => {
@@ -118,6 +127,24 @@ const Game = () => {
       }
     });
   }
+
+  if (visible) {
+    Swal.fire({
+      title: "Instructions",
+      width: "1000px",
+      html: `
+        <p>The bottom green bar is the target score aka the "dealer's hand".</p>
+        <p>The goal is to choose the correct combination of jewels to perfectly match the dealer's hand. </p>
+        <p>There is also a stats card to show you the corresponding digits.</p>
+        <p>The value of the jewels may or may not change values.</p>
+        <p>Choose carefully to ensure you match the dealer's hand!</p>
+    `,
+      confirmButtonColor: "#17A2B8",
+      confirmButtonText: `Play!`,
+    });
+    setVisible(false);
+  }
+
   return (
     <>
       <Container>
@@ -176,6 +203,9 @@ const Game = () => {
             <br />
             <br />
             <Card>
+              <Card.Header className="text-center" style={{ color: "#17A2B8" }}>
+                Jewel Stats
+              </Card.Header>
               <Card.Body className="d-flex align-items-center justify-content-between">
                 <div>
                   <h6>Current ~ {currentCount}</h6>
@@ -186,10 +216,14 @@ const Game = () => {
                   <h6>Losses ~ {losses}</h6>
                 </div>
                 <div>
-                  <h6>Ratio ~ {(wins / losses).toFixed(3)}</h6>
+                  <h6>
+                    Ratio ~{" "}
+                    {isNaN((wins / losses).toFixed(3))
+                      ? "0.000"
+                      : (wins / losses).toFixed(3)}
+                  </h6>
                 </div>
               </Card.Body>
-              <Card.Footer className="text-center">Jewel Stats</Card.Footer>
             </Card>
           </Col>
         </Row>
