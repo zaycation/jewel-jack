@@ -148,6 +148,7 @@ const Game = () => {
       confirmButtonColor: "#17A2B8",
       confirmButtonText: `Play!`,
     });
+    setVisible(false);
   }
 
   return (
