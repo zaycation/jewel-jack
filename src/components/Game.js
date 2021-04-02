@@ -223,7 +223,12 @@ const Game = () => {
                   <h6>Losses ~ {losses}</h6>
                 </div>
                 <div>
-                  <h6>Ratio ~ {(wins / losses).toFixed(3)}</h6>
+                  <h6>
+                    Ratio ~{" "}
+                    {isNaN((wins / losses).toFixed(3))
+                      ? "0.000"
+                      : (wins / losses).toFixed(3)}
+                  </h6>
                 </div>
               </Card.Body>
             </Card>
