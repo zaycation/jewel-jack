@@ -208,6 +208,9 @@ const Game = () => {
             <br />
             <br />
             <Card>
+              <Card.Header className="text-center" style={{ color: "#17A2B8" }}>
+                Jewel Stats
+              </Card.Header>
               <Card.Body className="d-flex align-items-center justify-content-between">
                 <div>
                   <h6>Current ~ {currentCount}</h6>
@@ -221,7 +224,6 @@ const Game = () => {
                   <h6>Ratio ~ {(wins / losses).toFixed(3)}</h6>
                 </div>
               </Card.Body>
-              <Card.Footer className="text-center">Jewel Stats</Card.Footer>
             </Card>
           </Col>
         </Row>
