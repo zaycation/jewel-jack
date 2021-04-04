@@ -1,5 +1,6 @@
 {
   "name": "jewel-jack",
+  "proxy": "http://localhost:5000",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,6 +8,7 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
     "bootstrap": "^4.6.0",
+    "concurrently": "^6.0.0",
     "cra-template": "^1.1.2",
     "react": "^17.0.2",
     "react-bootstrap": "^1.5.2",
@@ -23,7 +25,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "concurrently --kill-others \"npm run start\" \"cd backend && npm run start\""
   },
   "eslintConfig": {
     "extends": [
