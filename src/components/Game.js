@@ -49,8 +49,7 @@ const Game = () => {
   const [losses, setLosses] = useStateWithLocalStorage2("lossesKey");
   const [visible, setVisible] = useState(false);
   const [displayName, setDisplayName] = useState("");
-  const initialBoard = [{displayName: '123', wins: 5, losses: 46}, {displayName: '234', wins: 25, losses: 46}]
-  const [leaderboard, setLeaderboard] = useState(initialBoard);
+  const [leaderboard, setLeaderboard] = useState([]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
