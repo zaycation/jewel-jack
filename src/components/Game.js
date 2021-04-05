@@ -147,45 +147,45 @@ const Game = () => {
   }
 
   useEffect(() => {
+    function leaderboardPrompt() {
+      let games = wins + losses;
+      if (games === 3 || games % 5 === 0) {
+        Swal.fire({
+          title: "Would you like to submit your score to the leaderboard?",
+          input: "text",
+          inputPlaceholder: "Enter a display name",
+          showCancelButton: true,
+        }).then((result) => {
+          if (result.isConfirmed) {
+            setDisplayName(result.value);
+          }
+        });
+      }
+    }
+
     if (showLeaderboardPrompt) {
       leaderboardPrompt();
     }
     return () => {
       setShowLeaderboardPrompt(false);
     };
-  }, [showLeaderboardPrompt]);
+  }, [showLeaderboardPrompt, losses, wins]);
 
   useEffect(() => {
+    function updateLeaderboard() {
+      let newLeaderboard = [...leaderboard];
+      newLeaderboard = newLeaderboard.filter(
+        (obj) => obj.displayName !== displayName
+      );
+      newLeaderboard.push({ displayName, wins, losses });
+      newLeaderboard.sort((a, b) => b.wins / b.losses - a.wins / a.losses);
+      setLeaderboard(newLeaderboard);
+    }
+
     if (displayName) {
       updateLeaderboard();
     }
-  }, [displayName]);
-
-  function leaderboardPrompt() {
-    let games = wins + losses;
-    if (games === 3 || games % 5 === 0) {
-      Swal.fire({
-        title: "Would you like to submit your score to the leaderboard?",
-        input: "text",
-        inputPlaceholder: "Enter a display name",
-        showCancelButton: true,
-      }).then((result) => {
-        if (result.isConfirmed) {
-          setDisplayName(result.value);
-        }
-      });
-    }
-  }
-
-  function updateLeaderboard() {
-    let newLeaderboard = [...leaderboard];
-    newLeaderboard = newLeaderboard.filter(
-      (obj) => obj.displayName !== displayName
-    );
-    newLeaderboard.push({ displayName, wins, losses });
-    newLeaderboard.sort((a, b) => b.wins / b.losses - a.wins / a.losses);
-    setLeaderboard(newLeaderboard);
-  }
+  }, [displayName, leaderboard, losses, wins]);
 
   if (visible) {
     Swal.fire({
