@@ -17,18 +17,20 @@ const Header = () => {
                 Test your skills by never breaking the target score!
               </h6>
               <br />
-              <Link to="/donate">
-                <Button className="ml-3" variant="secondary">
-                  <FaBitcoin className="mr-2" />
-                  Donate BTC
-                </Button>{" "}
-              </Link>
-              <Link to="/app">
-                <Button className="ml-3 game-btn" variant="secondary">
-                  <FaGamepad className="mr-2" />
-                  Test Your Skills
-                </Button>{" "}
-              </Link>
+              <div>
+                <Link to="/donate">
+                  <Button className="ml-3" variant="secondary">
+                    <FaBitcoin className="mr-2" />
+                    Donate BTC
+                  </Button>{" "}
+                </Link>
+                <Link to="/app">
+                  <Button className="ml-3 game-btn" variant="secondary">
+                    <FaGamepad className="mr-2" />
+                    Test Your Skills
+                  </Button>{" "}
+                </Link>
+              </div>
             </Col>
           </Slide>
         </Row>
