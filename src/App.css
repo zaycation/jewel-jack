@@ -76,7 +76,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 40vh;
+  height: 30vh;
 }
 
 .sect2-bg {
@@ -84,7 +84,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 40vh;
+  height: 30vh;
 }
 
 .sect3-bg {
@@ -92,11 +92,11 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 40vh;
+  height: 30vh;
 }
 
 .text-sect {
-  min-height: 40vh;
+  height: 30vh;
   padding-top: 10%;
 }
 
