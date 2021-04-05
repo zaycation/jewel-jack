@@ -15,6 +15,7 @@ import {
   Col,
   Toast,
 } from "react-bootstrap";
+import Leaderboard from "./Leaderboard";
 
 const useStateWithLocalStorage = (localStorageKey) => {
   const [wins, setWins] = useState(
@@ -47,6 +48,9 @@ const Game = () => {
   const [wins, setWins] = useStateWithLocalStorage("winsKey");
   const [losses, setLosses] = useStateWithLocalStorage2("lossesKey");
   const [visible, setVisible] = useState(false);
+  const [displayName, setDisplayName] = useState("");
+  const initialBoard = [{displayName: '123', wins: 5, losses: 46}, {displayName: '234', wins: 25, losses: 46}]
+  const [leaderboard, setLeaderboard] = useState(initialBoard);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
@@ -123,9 +127,35 @@ const Game = () => {
         setShow(true);
         Swal.fire({
           title: "Share",
-        });
+        })
       }
-    });
+  
+      if ((wins + losses) >= 3 && !displayName) {
+        // allow user to enter custom display name for the leaderboard
+        Swal.fire({
+          input: 'text',
+          inputLabel: 'Enter a display name for the leaderboard'
+        }).then(({value: name}) => {
+          if (name) {
+            setDisplayName(name)
+          }
+        })
+      }
+    })
+  }
+
+  useEffect(() => {
+    if (displayName) {
+      updateLeaderboard();
+    }
+  }, [displayName, wins])
+  
+  function updateLeaderboard() {
+    let newLeaderboard = [...leaderboard];
+    newLeaderboard = newLeaderboard.filter((obj) => obj.displayName !== displayName);
+    newLeaderboard.push({displayName, wins, losses});
+    newLeaderboard.sort((a,b) => b.wins/b.losses - a.wins/a.losses);
+    setLeaderboard(newLeaderboard);
   }
 
   if (visible) {
@@ -258,6 +288,9 @@ const Game = () => {
                 carefully to ensure you match the dealer's hand!
               </li>
             </ol>
+          </Col>
+          <Col sm={12} md={12} lg={12}>
+            <Leaderboard leaderboard={leaderboard}/>
           </Col>
         </Row>
       </Container>
