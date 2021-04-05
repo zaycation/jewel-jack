@@ -68,6 +68,16 @@ const Game = () => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
+  function calculateRatio(num_1, num_2) {
+    for (let num = num_2; num > 1; num--) {
+      if (num_1 % num === 0 && num_2 % num === 0) {
+        num_1 = num_1 / num;
+        num_2 = num_2 / num;
+      }
+    }
+    return num_1 + ":" + num_2;
+  }
+
   function gemAdd() {
     let gemVal = getRandomNumberBetween(25, 200);
     if (gemVal > 0) {
@@ -117,60 +127,63 @@ const Game = () => {
       confirmButtonColor: "#17A2B8",
       confirmButtonText: `Play Again`,
       cancelButtonText: `Share with friends`,
-    }).then((result) => {
-      if (result.isConfirmed) {
-        setCount(getRandomNumberBetween(300, 1000));
-      } else if (result.isDenied) {
-        setCount(getRandomNumberBetween(300, 1000));
-      } else if (result.isCancelled) {
-        navigator.clipboard.writeText("https://jewel-jack.netlify.app");
-        setShow(true);
-        Swal.fire({
-          title: "Share",
-        })
-      }
-    }).then(() => {
-      setShowLeaderboardPrompt(true)
     })
+      .then((result) => {
+        if (result.isConfirmed) {
+          setCount(getRandomNumberBetween(300, 1000));
+        } else if (result.isDenied) {
+          setCount(getRandomNumberBetween(300, 1000));
+        } else if (result.isCancelled) {
+          navigator.clipboard.writeText("https://jewel-jack.netlify.app");
+          setShow(true);
+          Swal.fire({
+            title: "Share",
+          });
+        }
+      })
+      .then(() => {
+        setShowLeaderboardPrompt(true);
+      });
   }
 
   useEffect(() => {
     if (showLeaderboardPrompt) {
       leaderboardPrompt();
-    } 
+    }
     return () => {
       setShowLeaderboardPrompt(false);
-    }
-  }, [showLeaderboardPrompt])
+    };
+  }, [showLeaderboardPrompt]);
 
   useEffect(() => {
     if (displayName) {
       updateLeaderboard();
     }
-  }, [displayName])
+  }, [displayName]);
 
   function leaderboardPrompt() {
-		let games = wins + losses;
-		if (games === 3 || games % 5 === 0) {
-			Swal.fire({
-				title:
-					"Would you like to submit your score to the leaderboard?",
-				input: "text",
-				inputPlaceholder: "Enter a display name",
-				showCancelButton: true,
-			}).then((result) => {
-				if (result.isConfirmed) {
-					setDisplayName(result.value);
-				}
-			});
-		}
-	}
-  
+    let games = wins + losses;
+    if (games === 3 || games % 5 === 0) {
+      Swal.fire({
+        title: "Would you like to submit your score to the leaderboard?",
+        input: "text",
+        inputPlaceholder: "Enter a display name",
+        showCancelButton: true,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          setDisplayName(result.value);
+        }
+      });
+    }
+  }
+
   function updateLeaderboard() {
     let newLeaderboard = [...leaderboard];
-    newLeaderboard = newLeaderboard.filter((obj) => obj.displayName !== displayName);
-    newLeaderboard.push({displayName, wins, losses});
-    newLeaderboard.sort((a,b) => b.wins/b.losses - a.wins/a.losses);
+    newLeaderboard = newLeaderboard.filter(
+      (obj) => obj.displayName !== displayName
+    );
+    newLeaderboard.push({ displayName, wins, losses });
+    newLeaderboard.sort((a, b) => b.wins / b.losses - a.wins / a.losses);
     setLeaderboard(newLeaderboard);
   }
 
@@ -262,12 +275,7 @@ const Game = () => {
                   <h6>Losses ~ {losses}</h6>
                 </div>
                 <div>
-                  <h6>
-                    Ratio ~{" "}
-                    {isNaN((wins / losses).toFixed(3))
-                      ? "0.000"
-                      : (wins / losses).toFixed(3)}
-                  </h6>
+                  <h6>Ratio(W:L) ~ {calculateRatio(wins, losses)}</h6>
                 </div>
               </Card.Body>
             </Card>
@@ -306,7 +314,7 @@ const Game = () => {
             </ol>
           </Col>
           <Col sm={12} md={12} lg={12}>
-            <Leaderboard leaderboard={leaderboard}/>
+            <Leaderboard leaderboard={leaderboard} />
           </Col>
         </Row>
       </Container>
