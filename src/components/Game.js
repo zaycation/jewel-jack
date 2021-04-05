@@ -50,6 +50,7 @@ const Game = () => {
   const [visible, setVisible] = useState(false);
   const [displayName, setDisplayName] = useState("");
   const [leaderboard, setLeaderboard] = useState([]);
+  const [showLeaderboardPrompt, setShowLeaderboardPrompt] = useState(false);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
@@ -128,26 +129,42 @@ const Game = () => {
           title: "Share",
         })
       }
-  
-      if ((wins + losses) >= 3 && !displayName) {
-        // allow user to enter custom display name for the leaderboard
-        Swal.fire({
-          input: 'text',
-          inputLabel: 'Enter a display name for the leaderboard'
-        }).then(({value: name}) => {
-          if (name) {
-            setDisplayName(name)
-          }
-        })
-      }
+    }).then(() => {
+      setShowLeaderboardPrompt(true)
     })
   }
+
+  useEffect(() => {
+    if (showLeaderboardPrompt) {
+      leaderboardPrompt();
+    } 
+    return () => {
+      setShowLeaderboardPrompt(false);
+    }
+  }, [showLeaderboardPrompt])
 
   useEffect(() => {
     if (displayName) {
       updateLeaderboard();
     }
-  }, [displayName, wins])
+  }, [displayName])
+
+  function leaderboardPrompt() {
+		let games = wins + losses;
+		if (games === 3 || games % 5 === 0) {
+			Swal.fire({
+				title:
+					"Would you like to submit your score to the leaderboard?",
+				input: "text",
+				inputPlaceholder: "Enter a display name",
+				showCancelButton: true,
+			}).then((result) => {
+				if (result.isConfirmed) {
+					setDisplayName(result.value);
+				}
+			});
+		}
+	}
   
   function updateLeaderboard() {
     let newLeaderboard = [...leaderboard];
