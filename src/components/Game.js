@@ -10,11 +10,12 @@ import {
   ProgressBar,
   Container,
   Button,
-  Card,
   Row,
   Col,
   Toast,
+  Card,
 } from "react-bootstrap";
+//import StatsCard from "./StatsCard";
 import Leaderboard from "./Leaderboard";
 import Instructions from "./Instructions";
 
@@ -52,10 +53,12 @@ const Game = () => {
   const [displayName, setDisplayName] = useState("");
   const [leaderboard, setLeaderboard] = useState([]);
   const [showLeaderboardPrompt, setShowLeaderboardPrompt] = useState(false);
+  //const [stats, setStats] = useState(false);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     setCount(getRandomNumberBetween(300, 1000));
+
     //console.log(count.currentVal);
   }, []);
 
@@ -67,16 +70,6 @@ const Game = () => {
 
   function getRandomNumberBetween(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
-  }
-
-  function calculateRatio(num_1, num_2) {
-    for (let num = num_2; num > 1; num--) {
-      if (num_1 % num === 0 && num_2 % num === 0) {
-        num_1 = num_1 / num;
-        num_2 = num_2 / num;
-      }
-    }
-    return num_1 + ":" + num_2;
   }
 
   function gemAdd() {
@@ -262,8 +255,8 @@ const Game = () => {
           <Col sm={12} md={6} lg={6}>
             <br />
             <br />
-            <Card>
-              <Card.Header className="text-center" style={{ color: "#17A2B8" }}>
+            <Card fluid={true}>
+              <Card.Header className="text-center" style={{ color: "#5f2c82" }}>
                 Jewel Stats
               </Card.Header>
               <Card.Body className="d-flex align-items-center justify-content-between">
@@ -276,7 +269,7 @@ const Game = () => {
                   <h6>Losses ~ {losses}</h6>
                 </div>
                 <div>
-                  <h6>Ratio(W:L) ~ {calculateRatio(wins, losses)}</h6>
+                  <h6>W/L Ratio ~ {(wins / (losses || 1)).toFixed(3)}</h6>
                 </div>
               </Card.Body>
             </Card>
