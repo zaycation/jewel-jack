@@ -123,11 +123,9 @@ const Game = () => {
       cancelButtonText: `Share with friends`,
     })
       .then((result) => {
-        if (result.isConfirmed) {
-          setCount(getRandomNumberBetween(300, 1000));
-        } else if (result.isDenied) {
-          setCount(getRandomNumberBetween(300, 1000));
-        } else if (result.isCancelled) {
+        setCount(getRandomNumberBetween(300,1000));
+        
+        if (result.isCancelled) {
           navigator.clipboard.writeText("https://jewel-jack.netlify.app");
           setShow(true);
           Swal.fire({
