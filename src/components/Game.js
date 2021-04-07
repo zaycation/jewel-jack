@@ -18,6 +18,7 @@ import {
 //import StatsCard from "./StatsCard";
 import Leaderboard from "./Leaderboard";
 import Instructions from "./Instructions";
+import JewelStats from "./JewelStats";
 
 const useStateWithLocalStorage = (localStorageKey) => {
   const [wins, setWins] = useState(
@@ -123,8 +124,8 @@ const Game = () => {
       cancelButtonText: `Share with friends`,
     })
       .then((result) => {
-        setCount(getRandomNumberBetween(300,1000));
-        
+        setCount(getRandomNumberBetween(300, 1000));
+
         if (result.isCancelled) {
           navigator.clipboard.writeText("https://jewel-jack.netlify.app");
           setShow(true);
@@ -250,28 +251,12 @@ const Game = () => {
               max={1000}
             />
           </Col>
-          <Col sm={12} md={6} lg={6}>
-            <br />
-            <br />
-            <Card fluid={true}>
-              <Card.Header className="text-center" style={{ color: "#5f2c82" }}>
-                Jewel Stats
-              </Card.Header>
-              <Card.Body className="d-flex align-items-center justify-content-between">
-                <div>
-                  <h6>Current ~ {currentCount}</h6>
-                  <h6>Wins ~ {wins}</h6>
-                </div>
-                <div>
-                  <h6>Target ~ {count}</h6>
-                  <h6>Losses ~ {losses}</h6>
-                </div>
-                <div>
-                  <h6>W/L Ratio ~ {(wins / (losses || 1)).toFixed(3)}</h6>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
+          <JewelStats
+            currentCount={currentCount}
+            wins={wins}
+            count={count}
+            losses={losses}
+          />
         </Row>
         <Row>
           <Col sm={12} md={12} lg={12}>
