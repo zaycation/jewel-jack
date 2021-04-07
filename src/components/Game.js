@@ -13,7 +13,6 @@ import {
   Row,
   Col,
   Toast,
-  Card,
 } from "react-bootstrap";
 //import StatsCard from "./StatsCard";
 import Leaderboard from "./Leaderboard";
