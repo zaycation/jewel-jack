@@ -259,7 +259,7 @@ const Game = () => {
         </Row>
         <Row>
           <Col sm={12} md={12} lg={12}>
-            <div className="py-3"></div>
+            <div className="py-3" />
             <Button
               block
               variant="info"
