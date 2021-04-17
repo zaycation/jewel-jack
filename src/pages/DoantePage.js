@@ -2,6 +2,7 @@ import React from "react";
 import Flip from "react-reveal/Flip";
 
 import HomeNav from "../components/HomeNav";
+import Contributors from "../components/Contributors"
 
 const DoantePage = () => {
   return (
@@ -18,6 +19,8 @@ const DoantePage = () => {
           </p>
         </div>
       </Flip>
+     <Contributors/>
+
     </>
   );
 };
