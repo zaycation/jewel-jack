@@ -41,7 +41,7 @@ export default function AddContributors(props){
       console.log("newContributor",newContributor)
 
         const postContributor=(e)=>{
-       Axios.post(`http://localhost:8080/contributors`,newContributor)
+       Axios.post(`http://localhost:5000/contributors`,newContributor)
         .then((response) => {
             console.log("response",response)
             alert("Saved! Please click NEXT to proceed");
@@ -57,7 +57,7 @@ export default function AddContributors(props){
         
          <div className="credits">
                 <div className="credits__contributor-cards">
-                    <img className="credits__contributor-img"onChange={handleImage} />
+                    <img  alt="contributor's" className="credits__contributor-img"onChange={handleImage} />
                     
                     <form onSubmit={(e) => e.preventDefault(e)}>
                         

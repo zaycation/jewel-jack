@@ -8,12 +8,12 @@ app.use(express.json())
 app.use(cors());
 
 //Listen
-// const port = process.env.PORT || 5000;
-// app.listen(port, () => console.log(`Listening on port ${port}`));
+const port = process.env.PORT || 5000;
+app.listen(port, () => console.log(`Listening on port ${port}`));
 
-app.listen (8080, () => {
-  console.log(`listening at http://localhost:8080`);
-});
+// app.listen (8080, () => {
+//   console.log(`listening at http://localhost:8080`);
+// });
 
 //End points
 const contributors = require('./routes/routesContributors')

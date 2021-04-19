@@ -12,7 +12,7 @@ export default function Contributors(props) {
 
 
     const getContributorsData = (e) => {
-       Axios.get(`http://localhost:8080/contributors/`)
+       Axios.get(`http://localhost:5000/contributors/`)
             .then((response) => {
                 setContributorsData(response.data)
             //    console.log(response)
