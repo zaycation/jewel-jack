@@ -22,7 +22,7 @@ const HomeNav = () => {
                 App
               </HashLink>
             </Nav.Link>
-          </Fade> 
+          </Fade>
 
           <Fade bottom>
             <Nav.Link>
