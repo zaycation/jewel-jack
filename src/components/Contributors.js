@@ -15,7 +15,7 @@ export default function Contributors(props) {
        Axios.get(`http://localhost:5000/contributors/`)
             .then((response) => {
                 setContributorsData(response.data)
-            //    console.log(response)
+               console.log('GETresponse',response)
 
             })
 
@@ -31,9 +31,9 @@ export default function Contributors(props) {
     
             <section className="credits">
                 <h2 className="credits__heading">Contributors</h2>
-                <Link to="/addcontributors">
+                {/* <Link to="/addcontributors">
                     <button>Add A Contributor </button>
-                </Link>
+                </Link> */}
                 {/* <button onClick={getContributorsData}> Button</button> */}
                 <div className="credits__contributors-wrapper">
                     {contributorsData && contributorsData.map((contributorsData) => {
@@ -42,9 +42,9 @@ export default function Contributors(props) {
                                 key={contributorsData.id}
                                 id={contributorsData.id}
                                 name={contributorsData.name}
+                                image={contributorsData.image}
                                 linkedIn={contributorsData.linkedIn}
                                 gitHub={contributorsData.gitHub}
-                                // facebook={contributorsData.facebook}
                                 twitter={contributorsData.twitter}
                             />
                             

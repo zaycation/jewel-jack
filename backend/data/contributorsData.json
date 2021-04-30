@@ -1,16 +1,11 @@
 [
   {
-    "id": "f53a5656-d3fa-4dd2-a901-2f8a95ffaac4",
-    "name": "Test",
-    "linkedIn": "https://www.linkedin.com/",
-    "gitHub": "www.github.com/",
-    "twitter": "https://twitter.com/?lang=en"
-  },
-  {
-    "id": "bb119f2e-ce1e-4fb2-8c56-049eba072967",
-    "name": "test2",
-    "linkedIn": "bl",
-    "gitHub": "bl",
-    "twitter": "https://twitter.com/?lang=enm"
+    "id": "bb148d0e-3fb4-46fd-b98c-cd1f0200f317",
+    "name":"Hargul",
+    "image": "https://avatars.githubusercontent.com/u/69575921?v=4",
+    "linkedIn": "https://www.linkedin.com/in/hargulsidhu/",
+    "gitHub": "https://github.com/HargulS",
+    "twitter": ""
   }
+  
 ]

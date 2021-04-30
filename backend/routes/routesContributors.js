@@ -26,10 +26,9 @@ function NewContributors(body){
     return{
         id: uuidv4(), 
         name: body.name,
-        image: body.images,
+        image: body.image,
         linkedIn:body.linkedIn,
         gitHub:body.gitHub,
-        // facebook:body.facebook,
         twitter:body.twitter,
         
 
