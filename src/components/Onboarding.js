@@ -27,7 +27,7 @@ const Onboarding = () => {
             sm={{ span: 12, order: 1 }}
             md={{ span: 6, order: 2 }}
             lg={{ span: 6, order: 2 }}
-            className="text-sect text-right overflow-hidden"
+            className="my-5 text-right overflow-hidden"
           >
             <Slide right>
               <h6>When the game starts, a random target score is set</h6>
@@ -49,7 +49,7 @@ const Onboarding = () => {
             sm={{ span: 12, order: 3 }}
             md={{ span: 6, order: 3 }}
             lg={{ span: 6, order: 3 }}
-            className="text-sect text-left overflow-hidden"
+            className="my-5 text-left overflow-hidden"
           >
             <Slide left>
               <h6>Values may or may not randomly change at any moment...</h6>
@@ -104,7 +104,7 @@ const Onboarding = () => {
             sm={{ span: 12, order: 5 }}
             md={{ span: 6, order: 6 }}
             lg={{ span: 6, order: 6 }}
-            className="text-sect text-right overflow-hidden"
+            className="my-5 text-right overflow-hidden"
           >
             <Slide right>
               <div>
