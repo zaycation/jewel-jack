@@ -31,10 +31,6 @@ export default function Contributors(props) {
     
             <section className="credits">
                 <h2 className="credits__heading">Contributors</h2>
-                {/* <Link to="/addcontributors">
-                    <button>Add A Contributor </button>
-                </Link> */}
-                {/* <button onClick={getContributorsData}> Button</button> */}
                 <div className="credits__contributors-wrapper">
                     {contributorsData && contributorsData.map((contributorsData) => {
                         return (
@@ -53,9 +49,7 @@ export default function Contributors(props) {
   
                 
                 </div>
-             {/* {getContributorsData()} */}
               {usePrevious}
-    
             </section>
 
 
