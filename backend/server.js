@@ -1,6 +1,6 @@
 const express = require("express");
 
-const routesContributors = require('./routes/routesContributors')
+const routesContributors = require('./routes/contributors')
 
 const app = express();
 

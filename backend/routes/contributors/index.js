@@ -3,7 +3,7 @@ const router = express.Router()
 const fs = require("fs") // file system module
 const path = require("path")
 
-const dataContributors = path.join(__dirname, "../data/contributorsData.json")
+const dataContributors = path.join(__dirname, "../../data/contributorsData.json")
 
 router.get("/", async (req, res) => {
     try {
