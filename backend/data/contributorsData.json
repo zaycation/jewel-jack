@@ -1,11 +1,24 @@
 [
   {
-    "id": "bb148d0e-3fb4-46fd-b98c-cd1f0200f317",
+    "name":"Zaycation",
+    "image": "https://avatars.githubusercontent.com/u/54592938?v=4",
+    "gitHub": "https://github.com/zaycation",
+    "twitter": "https://twitter.com/zaycationdev"
+  },
+  {
     "name":"Hargul",
     "image": "https://avatars.githubusercontent.com/u/69575921?v=4",
     "linkedIn": "https://www.linkedin.com/in/hargulsidhu/",
-    "gitHub": "https://github.com/HargulS",
-    "twitter": ""
+    "gitHub": "https://github.com/HargulS"
+  },
+  {
+    "name":"Grvxs",
+    "image": "https://avatars.githubusercontent.com/u/65955464?v=4",
+    "gitHub": "https://github.com/grvxs"
+  },
+  {
+    "name":"Ting-C",
+    "image": "https://avatars.githubusercontent.com/u/19508536?v=4",
+    "gitHub": "https://github.com/ting-c"
   }
-  
 ]
