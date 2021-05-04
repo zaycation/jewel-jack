@@ -2,8 +2,9 @@ import React from "react";
 import Flip from "react-reveal/Flip";
 
 import HomeNav from "../components/HomeNav";
+import Contributors from "../components/Contributors";
 
-const DoantePage = () => {
+const DonatePage = () => {
   return (
     <>
       <HomeNav />
@@ -18,8 +19,9 @@ const DoantePage = () => {
           </p>
         </div>
       </Flip>
+      <Contributors />
     </>
   );
 };
 
-export default DoantePage;
+export default DonatePage;
