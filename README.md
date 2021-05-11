@@ -31,7 +31,7 @@ npm install
 ### 4. Start the server
 
 ```bash
-npm run dev
+npm run start
 ```
 
 ### 5. Create a new branch for your changes, updates, etc.
